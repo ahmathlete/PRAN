@@ -6,5 +6,5 @@
 # IMPORTANT: this script only run once (results will be cached)
 
 BiocManager::install('rhdf5', update = FALSE, type = 'source')
-remotes::install_cran(c("roxygen2", "devtools"),
+remotes::install_cran(c("roxygen2", "devtools", "RCurl"),
                       dependencies = TRUE, upgrade = 'never')
