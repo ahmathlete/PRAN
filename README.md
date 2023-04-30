@@ -15,7 +15,7 @@ Note that you should replace pkg-name with the actual name of the package you wi
 
 ## Package Compilation
 
-All of the packages are compiled locally and made available for installation via 
+All of the packages are compiled and made available for installation via 
 this repository. The compilation process is automatically generated using Github
 Actions, which are configured in the repository's workflows.
 
