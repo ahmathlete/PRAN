@@ -6,8 +6,5 @@
 # IMPORTANT: this script only run once (results will be cached)
 
 BiocManager::install('rhdf5', update = FALSE, type = 'source')
-remotes::install_cran(c("roxygen2", "devtools", "dipsaus", "raveio", "threeBrain"), dependencies = TRUE, upgrade = 'never')
-
-remotes::install_github(c(
-  "beauchamplab/ravebuiltins@migrate2"
-), dependencies = TRUE, upgrade = 'never')
+remotes::install_cran(c("roxygen2", "devtools"),
+                      dependencies = TRUE, upgrade = 'never')
