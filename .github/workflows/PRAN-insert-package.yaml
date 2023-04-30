@@ -1,0 +1,86 @@
+
+on:
+  push:
+    branches: [main, master]
+
+name: Compile-Personal-PRAN
+
+jobs:
+  drat:
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (R-${{ matrix.config.r }})
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        config:
+        - {os: macOS-latest,   r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '4.1', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '4.1', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+#        - {os: macos-11,   r: 'oldrel', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+#        - {os: macos-11,   r: 'release'}
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      RSPM: ${{ matrix.config.rspm }}
+      REPO: ${{ github.event.repository.name }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Configure git
+        run: git config --global core.autocrlf false
+        
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+
+      - uses: r-lib/actions/setup-pandoc@v2
+      
+      - name: Install dependencies
+        run: |
+          install.packages(c('remotes', 'BiocManager'))
+          remotes::install_github(c(
+            "dipterix/drat-1"
+          ), dependencies = TRUE, upgrade = 'never')
+        shell: Rscript {0}
+      
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ matrix.config.r }}-1-
+          restore-keys: ${{ runner.os }}-${{ matrix.config.r }}-1-
+      
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          source("https://raw.githubusercontent.com/ahmathlete/PRAN/main/scripts/prerequisite.R")
+        shell: Rscript {0}
+      
+      - name: Install packages
+        run: |
+          source("https://raw.githubusercontent.com/ahmathlete/PRAN/main/scripts/installs.R")
+        shell: Rscript {0}
+
+      - name: Compile
+        shell: Rscript {0}
+        run: |
+          repo_dname = ""
+          source("https://raw.githubusercontent.com/ahmathlete/PRAN/main/scripts/main.R")
+
+      - name: Drat -- commit and push
+        if: success()
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A *
+          git add -f *.tar.gz
+          git commit --allow-empty -m "Automated deploy from ${REPO}"
+          git remote -v
+          git push origin HEAD:gh-pages
