@@ -74,7 +74,7 @@ jobs:
           repo_dname = ""
           source("https://raw.githubusercontent.com/ahmathlete/PRAN/main/scripts/main.R")
 
-      - name: Drat -- commit and push
+      - name: PRAN -- commit and push
         if: success()
         run: |
           git config --local user.email "actions@github.com"
