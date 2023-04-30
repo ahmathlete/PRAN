@@ -11,11 +11,10 @@ jobs:
     name: ${{ matrix.config.os }} (R-${{ matrix.config.r }})
     strategy:
       fail-fast: false
+      max-parallel: 1
       
       matrix:
         config:
-        - {os: windows-latest, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
-        - {os: macOS-latest,   r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: windows-latest, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: macOS-latest,   r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: windows-latest, r: '4.3', rspm: "https://packagemanager.rstudio.com/cran/latest"}
@@ -89,6 +88,8 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add -A *
           git add -f *.tar.gz
+          git fetch origin gh-pages
+          git merge origin/gh-pages
           git commit --allow-empty -m "Automated deploy from ${REPO}"
           git remote -v
           git push origin HEAD:gh-pages
