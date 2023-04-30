@@ -4,4 +4,4 @@ remotes::install_github(c(
   "ahmathlete/idps",
   "ahmathlete/rWRF",
   "ahmathlete/KlimaKonformC3"
-), dependencies = TRUE, upgrade = 'never')
+), dependencies = TRUE, upgrade = "never")

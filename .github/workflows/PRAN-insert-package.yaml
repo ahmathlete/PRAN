@@ -14,8 +14,12 @@ jobs:
       
       matrix:
         config:
-        - {os: windows-latest, r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
-        - {os: macOS-latest,   r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '4.3', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '4.3', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
