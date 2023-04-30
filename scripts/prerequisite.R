@@ -4,7 +4,8 @@
 # available packages: remotes, drat (from dipterix/drat-1) and BiocManager
 
 # IMPORTANT: this script only run once (results will be cached)
-
+install.packages("RCurl",
+                 dependencies = TRUE)
 BiocManager::install('rhdf5', update = FALSE, type = 'source')
 remotes::install_cran(c("roxygen2", "devtools", "RCurl"),
                       dependencies = TRUE, upgrade = 'never')

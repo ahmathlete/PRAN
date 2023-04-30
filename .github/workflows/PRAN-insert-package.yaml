@@ -14,8 +14,6 @@ jobs:
       
       matrix:
         config:
-        - {os: macOS-latest,   r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
-        - {os: windows-latest, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: windows-latest, r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: macOS-latest,   r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         
@@ -56,7 +54,7 @@ jobs:
           ), dependencies = TRUE, upgrade = 'never')
         shell: Rscript {0}
       
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: cache
         with:
           path: ${{ env.R_LIBS_USER }}
