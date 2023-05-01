@@ -4,6 +4,7 @@
 # available packages: remotes, drat (from dipterix/drat-1) and BiocManager
 
 # IMPORTANT: this script only run once (results will be cached)
+
 BiocManager::install("rhdf5",
   update = FALSE,
   type = "source"
