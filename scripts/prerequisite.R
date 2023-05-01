@@ -15,6 +15,7 @@ remotes::install_cran(
     "devtools",
     "ncdf4",
     "terra",
+    "bitops",
     "RCurl"
   ),
   dependencies = TRUE,
@@ -24,17 +25,14 @@ remotes::install_cran(
 # check if windows
 if (grepl("windows", tolower(Sys.info()["sysname"]))) {
   # Windows system detected
-  
-  R_Version<-paste0(R.version$major, ".", substr(R.version$minor, 1, 1))
-  
+
+  R_Version <- paste0(R.version$major, ".", substr(R.version$minor, 1, 1))
 
   install.packages(paste0(
     "https://cran.r-project.org/bin/windows/contrib/",
     R_Version,
     "/RCurl_1.98-1.12.zip"
-  ), repos = NULL, type="source")
-
-
+  ), repos = NULL, type = "source")
 } else {
   # Non-Windows system detected
   remotes::install_cran(
