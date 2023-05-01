@@ -27,23 +27,11 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
   
   R_Version<-paste0(R.version$major, ".", substr(R.version$minor, 1, 1))
   
-  if(R_Version=="4.0"){
-    
-    install.packages(paste0(
-      "https://cran.r-project.org/bin/windows/contrib/",
-      R_Version,
-      "/RCurl_1.98-1.6.zip"
-    ), repos = NULL, type="source")
-    
-  }else if (R_Version =="4.3"){
-    
-    install.packages(paste0(
-      "https://cran.r-project.org/bin/windows/contrib/",
-      R_Version,
-      "/RCurl_1.98-1.12.zip"
-    ), repos = NULL, type="source")
-    
-  }
+  install.packages(paste0(
+    "https://cran.r-project.org/bin/windows/contrib/",
+    R_Version,
+    "/RCurl_1.98-1.12.zip"
+  ), repos = NULL, type="source")
 
 } else {
   # Non-Windows system detected

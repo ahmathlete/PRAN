@@ -15,8 +15,8 @@ jobs:
       
       matrix:
         config:
-        - {os: windows-latest, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
-        - {os: macOS-latest,   r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: windows-latest, r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
+        - {os: macOS-latest,   r: '4.2', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: windows-latest, r: '4.3', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         - {os: macOS-latest,   r: '4.3', rspm: "https://packagemanager.rstudio.com/cran/latest"}
         
