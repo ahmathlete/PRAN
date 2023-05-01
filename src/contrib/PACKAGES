@@ -4,7 +4,7 @@ Imports: dplyr, fftwtools, lubridate, magrittr, purrr, RCurl, readr,
         stringr, terra (>= 1.7.0), tibble, tidyr
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: e4e9f3bd731dcfdcb8bf7d041d9553d7
+MD5sum: 517b244bdb791062c2ae1f8db13a5927
 NeedsCompilation: yes
 
 Package: KlimaKonformC3
@@ -15,7 +15,7 @@ Imports: cowplot, crunch, dplyr, ggformula, ggnewscale, ggplot2,
         robustbase, sf, stringr, terra, tidyr
 Suggests: spelling
 License: GPL (>= 3)
-MD5sum: 2fcb68c9f56b7d8bd460ee08988450b0
+MD5sum: 2212e7ec039d1be7042c9b9725ec1acd
 NeedsCompilation: no
 
 Package: rWRF
@@ -25,5 +25,5 @@ Imports: abind, cptcity, dplyr, ggplot2, magrittr, ncdf4, purrr, sf,
         stringr, terra, tidyr
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: 906a223541cf79c2e9f2fa208f5d61a8
+MD5sum: 42eb2bd1744186ffcbca0c1592ae73c4
 NeedsCompilation: yes
