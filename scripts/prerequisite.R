@@ -20,3 +20,38 @@ remotes::install_cran(
   dependencies = TRUE,
   upgrade = "never"
 )
+
+# check if windows
+if (grepl("windows", tolower(Sys.info()["sysname"]))) {
+  # Windows system detected
+  
+  R_Version<-paste0(R.version$major, ".", substr(R.version$minor, 1, 1))
+  
+  if(R_Version=="4.0"){
+    
+    install.packages(paste0(
+      "https://cran.r-project.org/bin/windows/contrib/",
+      R_Version,
+      "/RCurl_1.98-1.6.zip"
+    ), repos = NULL)
+    
+  }else if (R_Version =="4.3"){
+    
+    install.packages(paste0(
+      "https://cran.r-project.org/bin/windows/contrib/",
+      R_Version,
+      "/RCurl_1.98-1.12.zip"
+    ), repos = NULL)
+    
+  }
+
+} else {
+  # Non-Windows system detected
+  remotes::install_cran(
+    c(
+      "RCurl"
+    ),
+    dependencies = TRUE,
+    upgrade = "never"
+  )
+}
