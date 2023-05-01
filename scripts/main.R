@@ -11,7 +11,7 @@ rver <- sprintf("%s.%s", major, minor)
 
 dir.create(repo_dir, showWarnings = FALSE, recursive = TRUE)
 options(dratRepo = repo_dir)
-drat::addRepo("pran", paste0("file:", repo_dir))
+drat::addRepo("PRAN", paste0("file:", repo_dir))
 
 source_path <- "./tmp/source/"
 github_path <- "./tmp/source/github"
