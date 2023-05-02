@@ -48,7 +48,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           pacman -Syyu
-          pacman -S mingw-w64-x86_64-toolchain pacman -S mingw-w64-x86_64-pkg-config --noconfirm
+          pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-pkg-config --noconfirm
           pacman -S libcurl mingw-w64-x86_64-curl --noconfirm
           pacman -Syu mingw-w64-x86_64-fftw --noconfirm
       
