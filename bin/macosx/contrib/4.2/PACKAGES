@@ -1,20 +1,20 @@
 Package: idps
 Version: 0.0.1
-Imports: dplyr, fftwtools, lubridate, magrittr, purrr, RCurl, readr,
-        stringr, terra (>= 1.7.0), tibble, tidyr
+Imports: dplyr, fftwtools, lubridate, magrittr, ncdf4, purrr, RCurl,
+        readr, rhdf5, stringr, terra (>= 1.7.0), tibble, tidyr
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: 452bbc43fb2b62ea9c83372b0a797440
+MD5sum: 98ca92edd448e262a74467ef35c9fe28
 
 Package: KlimaKonformC3
 Version: 2.0.0
 Depends: R (>= 3.5.0)
-Imports: cowplot, crunch, dplyr, ggformula, ggnewscale, ggplot2,
-        ggridges, lubridate, magick, magrittr, purrr, readr,
+Imports: cowplot, crunch, data.table, dplyr, ggformula, ggnewscale,
+        ggplot2, ggridges, lubridate, magick, magrittr, purrr, readr,
         robustbase, sf, stringr, terra, tidyr
 Suggests: spelling
 License: GPL (>= 3)
-MD5sum: 3d1d2e4e50c5b7400b87ff145745ad42
+MD5sum: cfaf8290bf37e3971d7636ea1a7aa7bd
 
 Package: rWRF
 Version: 0.0.1
@@ -23,4 +23,4 @@ Imports: abind, cptcity, dplyr, ggplot2, magrittr, ncdf4, purrr, sf,
         stringr, terra, tidyr
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: 44c2433efefe0e34524165f43be5bcb8
+MD5sum: 83a69e5b4f8cd069e7f48300452dcaaf
