@@ -1,7 +1,7 @@
 Package: idps
 Version: 0.0.1
-Imports: dplyr, fftwtools, lubridate, magrittr, purrr, RCurl, readr,
-        stringr, terra (>= 1.7.0), tibble, tidyr
+Imports: dplyr, fftwtools, lubridate, magrittr, ncdf4, purrr, RCurl,
+        readr, rhdf5, stringr, terra (>= 1.7.0), tibble, tidyr
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
 Archs: x64
@@ -9,8 +9,8 @@ Archs: x64
 Package: KlimaKonformC3
 Version: 2.0.0
 Depends: R (>= 3.5.0)
-Imports: cowplot, crunch, dplyr, ggformula, ggnewscale, ggplot2,
-        ggridges, lubridate, magick, magrittr, purrr, readr,
+Imports: cowplot, crunch, data.table, dplyr, ggformula, ggnewscale,
+        ggplot2, ggridges, lubridate, magick, magrittr, purrr, readr,
         robustbase, sf, stringr, terra, tidyr
 Suggests: spelling
 License: GPL (>= 3)
